@@ -1,0 +1,27 @@
+{
+  "name": "s2n",
+  "version": "0.0.1",
+  "description": "Transform Swagger API Json Schema to JavaScript interfaces",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielbonifacio/s2n.git"
+  },
+  "keywords": [
+    "swagger",
+    "json",
+    "node",
+    "javascript",
+    "interface",
+    "typescript"
+  ],
+  "author": "danielbonifacio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielbonifacio/s2n/issues"
+  },
+  "homepage": "https://github.com/danielbonifacio/s2n#readme"
+}
