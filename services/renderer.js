@@ -1,4 +1,11 @@
+const { posix } = require("path");
+
 class Renderer {
+  constructor(options) {
+    this.destination = options.destination;
+    this.name = options.name;
+  }
+
   getDependencies(dependencies) {
     return dependencies
       .map(dependency => `import ${dependency} from '${dependency}'`)
@@ -8,7 +15,11 @@ class Renderer {
   getDefinitionsImports(definitions) {
     return Object.keys(definitions)
       .map(
-        definition => `import ${definition} from '../definitions/${definition}'`
+        definition =>
+          `import ${definition} from '${posix.relative(
+            this.destination.service,
+            this.destination.definitions
+          )}/${definition}'`
       )
       .join("\n");
   }
@@ -203,4 +214,4 @@ export const ${path.operationId} = async (${this.getParametersInline(
   }
 }
 
-module.exports = new Renderer();
+module.exports = Renderer;

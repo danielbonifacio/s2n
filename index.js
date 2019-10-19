@@ -1,11 +1,16 @@
 const http = require("./services/http");
 const swagger = require("./services/swagger");
-const renderer = require("./services/renderer");
+const Renderer = require("./services/renderer");
 const writter = require("./services/writter");
 
-const main = async (service, api) => {
+const main = async ({ name, jsonUrl, destination }) => {
+  const renderer = new Renderer({
+    destination,
+    name
+  });
+
   const dependencies = ["axios"];
-  const doc = await http.getSwaggerJSON(api);
+  const doc = await http.getSwaggerJSON(jsonUrl);
   const paths = swagger.parse(doc);
 
   const interfaces = paths.map(path => renderer.renderPath(path));
@@ -15,8 +20,15 @@ const main = async (service, api) => {
     .concat(renderer.getDefinitionsImports(doc.definitions));
   const definitions = renderer.getDefinitions(doc.definitions);
 
-  writter.writeDefinitions(definitions, "./definitions");
-  writter.writeInterfaces(service, interfaces, "./interfaces", imports);
+  writter.writeDefinitions(definitions, destination.definitions);
+  writter.writeInterfaces(name, interfaces, destination.service, imports);
 };
 
-main("Petstore", "https://petstore.swagger.io/v2/swagger.json");
+main({
+  name: "Petstore",
+  jsonUrl: "https://petstore.swagger.io/v2/swagger.json",
+  destination: {
+    definitions: "./test/deep/a/little/dir",
+    service: "./test/also/deep/but/not/in/same/tree"
+  }
+});
