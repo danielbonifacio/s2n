@@ -13,13 +13,18 @@ class Renderer {
   }
 
   getDefinitionsImports(definitions) {
+    const positioned = posix.relative(
+      this.destination.service,
+      this.destination.definitions
+    );
+    const relativePath = positioned.startsWith(".")
+      ? positioned
+      : `./${positioned}`;
+
     return Object.keys(definitions)
       .map(
         definition =>
-          `import ${definition} from '${posix.relative(
-            this.destination.service,
-            this.destination.definitions
-          )}/${definition}'`
+          `import ${definition} from '${relativePath}/${definition}'`
       )
       .join("\n");
   }
