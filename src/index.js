@@ -3,7 +3,7 @@ const swagger = require("./services/swagger");
 const Renderer = require("./services/renderer");
 const writter = require("./services/writter");
 
-const main = async ({ name, jsonUrl, destination }) => {
+const s2n = async ({ name, jsonUrl, destination }) => {
   const renderer = new Renderer({
     destination,
     name
@@ -24,11 +24,5 @@ const main = async ({ name, jsonUrl, destination }) => {
   writter.writeInterfaces(name, interfaces, destination.service, imports);
 };
 
-main({
-  name: "Petstore",
-  jsonUrl: "https://petstore.swagger.io/v2/swagger.json",
-  destination: {
-    definitions: "./test/deep/a/little/dir",
-    service: "./test/also/deep/but/not/in/same/tree"
-  }
-});
+exports.s2n = s2n;
+module.exports = s2n;
