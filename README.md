@@ -29,7 +29,7 @@ s2n [...args] --defnitions-path do/this/instead
 First, you'll need to install s2n globally on your machine. You can do it with the following command:
 
 ```bash
-npm i -g @danielbonifacio/s2n
+npm i -g s2n
 ```
 
 After that, you must be able to use the CLI with `s2n`
