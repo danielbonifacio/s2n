@@ -1,5 +1,9 @@
 # s2n
 
+<center>
+  <img src="https://i.imgur.com/wCnXu7c.gif">
+</center>
+
 The Swagger to Node provides a simple way to create TypeScript interfaces based on swagger documentation JSON.
 
 You can use it to populate some BFF's SDK or just to make API calls simpler, by using it on your front-end project.
