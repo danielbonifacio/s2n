@@ -1,6 +1,6 @@
 {
   "name": "s2n",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Transform Swagger API Json Schema to JavaScript interfaces",
   "main": "src/index.js",
   "scripts": {
