@@ -148,7 +148,9 @@ export default ${definition.title}
       (() => {
         if (
           !inBody.length &&
-          (path._method === "post" || path._method === "put")
+          (path._method === "post" ||
+            path._method === "put" ||
+            path._method === "patch")
         ) {
           str += ", null";
         }
