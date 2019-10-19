@@ -1,10 +1,17 @@
 {
-  "name": "s2n",
+  "name": "@danielbonifacio/swagger-to-node",
   "version": "0.0.1",
   "description": "Transform Swagger API Json Schema to JavaScript interfaces",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "test"
+  },
+  "bin": {
+    "s2n": "bin/s2n",
+    "@danielbonifacio/swagger-to-node": "bin/s2n"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
