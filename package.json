@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/danielbonifacio/s2n/issues"
   },
-  "homepage": "https://github.com/danielbonifacio/s2n#readme"
+  "homepage": "https://github.com/danielbonifacio/s2n#readme",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
 }
