@@ -34,7 +34,13 @@ npm i -g s2n
 
 After that, you must be able to use the CLI with `s2n`
 
-Try to type `s2n --help` on your terminal, to see all the available documented commands.
+TIP: Try to type `s2n --help` on your terminal, to see all the available documented commands.
+
+**Example of usage:**
+
+```bash
+s2n --name Petstore --json-url https://petstore.swagger.io/v2/swagger.json
+```
 
 ### Required arguments
 
